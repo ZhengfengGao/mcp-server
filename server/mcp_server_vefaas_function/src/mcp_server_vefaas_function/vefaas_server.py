@@ -712,7 +712,7 @@ def _get_upload_code_description() -> str:
     return base_desc + note + tail
 
 @mcp.tool(description=_get_upload_code_description())
-def upload_code(region: str, function_id: str, local_folder_path: Optional[str] = None,
+def upload_code(function_id: str, region: Optional[str] = None, local_folder_path: Optional[str] = None,
                 local_folder_exclude: Optional[List[str]] = None,
                 file_dict: Optional[dict[str, Union[str, bytes]]] = None) -> str:
     region = validate_and_set_region(region)
@@ -852,7 +852,7 @@ Params: function_id; optional region (default cn-beijing); fetch_log_content (bo
 """)
 def get_dependency_install_task_status(
     function_id: str,
-    region: str = None,
+    region: Optional[str] = None,
     fetch_log_content: bool = False,
 ):
     region = validate_and_set_region(region)
